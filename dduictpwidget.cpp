@@ -16,7 +16,6 @@ DDuiCTPWidget::DDuiCTPWidget(QWidget *parent) : QWidget(parent)
 {
     qRegisterMetaType<QTextCursor>("QTextCursor");
     setWindowTitle(QStringLiteral("Qt For 期货CTP例子"));
-
     createWidgets();
     connectQuoteServer();
     connectTraderServer();

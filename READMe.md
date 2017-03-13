@@ -47,7 +47,7 @@ tags:
   * 继承QObject 实现信号槽的连接
 
 
-```
+```cpp
 #ifndef DDUIMARKETDATAAPI_H
 #define DDUIMARKETDATAAPI_H
 
@@ -128,7 +128,7 @@ signals:
 
   * 继承QObject 实现信号槽的连接
 
-```
+```cpp
     #ifndef DDUITRADERAPI_H
 #define DDUITRADERAPI_H
 
@@ -198,7 +198,7 @@ signals:
 
     * QtWidgets类中使用
 
-```
+```cpp
 
 /// \brief DDuiCTPWidget::connectTraderServer
 /// 初始化交易工作线程
