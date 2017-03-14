@@ -64,8 +64,8 @@ void DDuiMarketDataApi::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDe
     //    qDebug()<<Q_FUNC_INFO<<pDepthMarketData->AskPrice1;
     // 输出报单录入结果
     if(!pDepthMarketData)return;
-    qDebug()<<Q_FUNC_INFO<<pDepthMarketData->AskPrice1
-           <<" "<<pDepthMarketData->ActionDay<<" code "<<pDepthMarketData->InstrumentID;
+//    qDebug()<<Q_FUNC_INFO<<pDepthMarketData->AskPrice1
+//           <<" "<<pDepthMarketData->ActionDay<<" code "<<pDepthMarketData->InstrumentID;
 
     QString json = QString("<font color='green'> LastPrice:%1, time: %2,code:%3,price1:%4</font>")
             .arg(pDepthMarketData->LastPrice)

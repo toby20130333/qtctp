@@ -169,9 +169,12 @@ void DDuiCTPWidget::createConnect()
         ord.IsAutoSuspend = 0;
         pTraderApi->ReqOrderInsert(&ord, 1);
     });
-    connect(mMarketCallBack,&DDuiMarketDataApi::signalRspMarketData,[&](QString json){
-        mFutrueView->updateMarketData(json);
-    });
+//    connect(mMarketCallBack,&DDuiMarketDataApi::signalRspMarketData,[&](QString json){
+//        if(mFutrueView) mFutrueView->updateMarketData(json);
+//    });
+    //多线程处理信号槽的时候 信号槽连接方式发生一些变化
+    connect(mMarketCallBack,SIGNAL(signalRspMarketData(QString))
+            ,mFutrueView,SLOT(updateMarketData(QString)),Qt::BlockingQueuedConnection);
     connect(mFutrueView,&DDuiFutrueView::signalDataSub,[&](QString code,bool sub){
         if(code.isEmpty())return;
         subMarketData(QStringList()<<code,sub);

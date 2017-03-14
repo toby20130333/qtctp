@@ -1,5 +1,6 @@
 ﻿#include "dduifutrueview.h"
 #include "ui_dduifutrueview.h"
+#include <QDebug>
 
 DDuiFutrueView::DDuiFutrueView(QWidget *parent) :
     QFrame(parent),
@@ -15,7 +16,8 @@ DDuiFutrueView::~DDuiFutrueView()
 
 void DDuiFutrueView::updateMarketData(const QString &json)
 {
-    ui->textBrowser->append(json);
+//    qDebug()<<Q_FUNC_INFO<<json;
+    ui->plainTextEdit->appendHtml(json);
 }
 
 void DDuiFutrueView::on_pushButton_clicked()
