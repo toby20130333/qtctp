@@ -1,4 +1,5 @@
-﻿#ifndef DDUIMARKETDATAAPI_H
+﻿
+#ifndef DDUIMARKETDATAAPI_H
 #define DDUIMARKETDATAAPI_H
 
 #include <QObject>

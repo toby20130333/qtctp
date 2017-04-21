@@ -24,6 +24,8 @@ DDuiCTPWidget::DDuiCTPWidget(QWidget *parent) : QWidget(parent)
 
 DDuiCTPWidget::~DDuiCTPWidget()
 {
+    disconnect(mMarketCallBack,SIGNAL(signalRspMarketData(QString))
+            ,mFutrueView,SLOT(updateMarketData(QString)));
     if(pMarketApi){
         pMarketApi->RegisterSpi(NULL);
         pMarketApi->Release();
