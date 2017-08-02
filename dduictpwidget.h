@@ -6,7 +6,7 @@
 #include "dduimarketdataapi.h"
 #include "dduitraderapi.h"
 #include <dduifutrueview.h>
-
+#include "dduitraderapi.h"
 
 #include <QHBoxLayout>
 class DDuiCTPWidget : public QWidget

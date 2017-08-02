@@ -27,8 +27,8 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/tradeapidll/32/ -lthost
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/tradeapidll/32/ -lthosttraderapi
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/tradeapidll/32/ -lthosttraderapi
 
-INCLUDEPATH += $$PWD/tradeapidll
-DEPENDPATH += $$PWD/tradeapidll
+INCLUDEPATH += $$PWD/tradeapidll/32
+DEPENDPATH += $$PWD/tradeapidll/32
 
 #copy those dll to run path
 libfile.files += $$PWD/tradeapidll/32/*.dll

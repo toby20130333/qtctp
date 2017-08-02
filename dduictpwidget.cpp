@@ -7,7 +7,7 @@
 ///
 ///  深度行情 中金的合约可以 其他的可以走交易段的行情查询接口
 ///
-char *DDuiCTPWidget::Instrumnet[]={"IF1709","IF1706"};
+//char *DDuiCTPWidget::Instrumnet[]={"IF1709","IF1706"};
 
 DDuiCTPWidget::DDuiCTPWidget(QWidget *parent) : QWidget(parent)
   ,pMarketApi(NULL),pTraderApi(NULL)
@@ -67,7 +67,8 @@ void DDuiCTPWidget::connectTraderServer()
     // 订阅公共流
     pTraderApi->SubscribePublicTopic(THOST_TERT_RESUME);
     // 设置交易托管系统服务的地址，可以注册多个地址备用
-    pTraderApi->RegisterFront(TRADE_SERVER);
+    QString sever = QString(TRADE_SERVER);
+    pTraderApi->RegisterFront(sever.toUtf8().data());
     // 使客户端开始与后台服务建立连接
     pTraderApi->Init();
     WaitForSingleObject(g_hEvent,INFINITE);
@@ -85,7 +86,8 @@ void DDuiCTPWidget::connectQuoteServer()
     // 注册一事件处理的实例
     pMarketApi->RegisterSpi(mMarketCallBack);
     // 设置交易托管系统服务的地址，可以注册多个地址备用
-    pMarketApi->RegisterFront(MARKET_SERVER);
+    QString server = QString(MARKET_SERVER);
+    pMarketApi->RegisterFront(server.toUtf8().data());
     // 使客户端开始与后台服务建立连接
     pMarketApi->Init();
 //    pUserApi->Join();
@@ -111,7 +113,8 @@ void DDuiCTPWidget::createConnect()
         // 订阅行情
         qDebug()<<Q_FUNC_INFO<<success;
        if(success){
-           qDebug()<<"sub ok? "<<pMarketApi->SubscribeMarketData (Instrumnet,2);
+           char *Instrumnet2[]={QString("IF1709").toUtf8().data(),QString("IF1706").toUtf8().data()};
+           qDebug()<<"sub ok? "<<pMarketApi->SubscribeMarketData (Instrumnet2,2);
        }
     });
     connect(mTraderCallBack,&DDuiTraderApi::signalFrontConnected,[&](){
